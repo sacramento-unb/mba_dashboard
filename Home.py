@@ -27,7 +27,7 @@ compacto = st.sidebar.checkbox(label='Ativar modo compacto')
 
 # Checagem para saber se o arquivo foi subido
 
-EMBARGO = 'dados/embargos/adm_embargo_a.shp'
+EMBARGO = 'dados/embargos/embargos_ibama.parquet'
 DESMATAMENTO = 'dados/mapbiomas/mapbiomas_alertas.parquet'
 TIS = 'dados/tis_poligonais/tis.parquet'
 
@@ -45,7 +45,7 @@ if arquivo_subido and not compacto:
 
     @st.cache_resource
     def abrir_embargo():
-        gdf_embargo = gpd.read_file(EMBARGO)
+        gdf_embargo = gpd.read_parquet(EMBARGO)
         return gdf_embargo
     
     @st.cache_resource

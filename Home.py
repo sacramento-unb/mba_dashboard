@@ -200,7 +200,7 @@ elif arquivo_subido and compacto:
 
     @st.cache_resource
     def abrir_embargo():
-        gdf_embargo = gpd.read_file(EMBARGO)
+        gdf_embargo = gpd.read_parquet(EMBARGO)
         return gdf_embargo
     
     @st.cache_resource
